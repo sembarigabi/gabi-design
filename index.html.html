@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gabi Design — CX, Illustration & Wellbeing</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,900;1,9..144,300;1,9..144,600;1,9..144,900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --berry:#6c3241;--berry-deep:#4e2230;--berry-mid:#8a4058;--berry-soft:#c4849a;
+  --lavender:#e4d7fc;--lavender-mid:#c8b5f5;--lavender-deep:#9b82d4;
+  --sand:#f5ede0;--sand-2:#ede2ce;--blush:#f9e8ec;--sage-n:#e2ede6;
+  --sky-n:#deeaf5;--peach:#fae5d3;--moss:#d4e5d8;
+  --ink:#1e1118;--ink-2:#3d2535;--muted:#7a5e6a;--faint:#b89aaa;
+  --cream:#fdfaf7;--border:rgba(108,50,65,0.1);--border-2:rgba(108,50,65,0.18);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.5;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 3rem;background:rgba(253,250,247,0.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);}
+.logo{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:900;color:var(--berry);text-decoration:none;letter-spacing:-0.02em;display:flex;align-items:center;gap:7px;}
+.logo-dot{width:9px;height:9px;border-radius:50%;background:var(--lavender-deep);flex-shrink:0;}
+.nav-links{display:flex;gap:2.25rem;align-items:center;}
+.nav-a{font-size:12.5px;color:var(--muted);text-decoration:none;font-weight:400;transition:color .2s;}
+.nav-a:hover{color:var(--berry);}
+.nav-cta{font-size:12px;font-weight:500;background:var(--berry);color:#fdfaf7;padding:8px 20px;border-radius:999px;text-decoration:none;letter-spacing:.03em;transition:background .2s,transform .15s;}
+.nav-cta:hover{background:var(--berry-deep);transform:translateY(-1px);}
+
+/* HERO */
+.hero{min-height:100vh;padding:9rem 3rem 5rem;display:grid;grid-template-rows:1fr auto;position:relative;overflow:hidden;}
+.hero-circle{position:absolute;width:700px;height:700px;border-radius:50%;background:radial-gradient(circle at 40% 40%,var(--lavender) 0%,rgba(228,215,252,0) 70%);top:-120px;right:-160px;pointer-events:none;z-index:0;animation:pulse 7s ease-in-out infinite;}
+.hero-blob-2{position:absolute;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,var(--blush) 0%,transparent 70%);bottom:80px;left:-60px;z-index:0;animation:pulse 9s ease-in-out infinite reverse;}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:.9;}50%{transform:scale(1.04);opacity:.7;}}
+.hero-inner{position:relative;z-index:1;}
+.hero-pre{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:500;margin-bottom:1.75rem;}
+.hero-pre-dot{width:6px;height:6px;border-radius:50%;background:var(--berry-soft);}
+h1{font-family:'Fraunces',serif;font-size:clamp(3.8rem,9vw,8rem);font-weight:900;line-height:.95;letter-spacing:-.04em;color:var(--berry);margin-bottom:2.5rem;}
+h1 em{font-style:italic;font-weight:300;color:var(--ink);display:block;}
+.hero-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;flex-wrap:wrap;position:relative;z-index:1;}
+.hero-desc{font-size:15px;color:var(--muted);line-height:1.75;font-weight:300;max-width:400px;}
+.hero-chips{display:flex;flex-direction:column;gap:7px;align-items:flex-end;}
+.chip{font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:6px 16px;border-radius:999px;display:inline-block;}
+.chip-berry{background:var(--berry);color:var(--lavender);}
+.chip-lav{background:var(--lavender);color:var(--berry);}
+.chip-sand{background:var(--sand-2);color:var(--muted);}
+
+/* TICKER */
+.ticker{background:var(--berry);padding:14px 0;overflow:hidden;border-top:1px solid var(--berry-deep);border-bottom:1px solid var(--berry-deep);}
+.ticker-track{display:flex;animation:tick 28s linear infinite;width:max-content;}
+@keyframes tick{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+.ticker-item{display:flex;align-items:center;gap:2rem;padding:0 2rem;white-space:nowrap;font-family:'Fraunces',serif;font-size:1rem;font-weight:600;font-style:italic;color:var(--lavender);letter-spacing:.01em;}
+.ticker-sep{color:var(--berry-soft);font-style:normal;font-size:.6rem;}
+
+/* SECTION */
+.section{padding:7rem 3rem;}
+.eyebrow{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);font-weight:500;margin-bottom:.9rem;display:flex;align-items:center;gap:10px;}
+.eyebrow::before{content:'';width:28px;height:1.5px;background:var(--berry-soft);display:block;flex-shrink:0;}
+
+/* SERVICES */
+#services{background:var(--cream);}
+.services-top{display:grid;grid-template-columns:1.1fr .9fr;gap:4rem;margin-bottom:4rem;align-items:end;}
+.services-h{font-family:'Fraunces',serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:900;line-height:1;letter-spacing:-.035em;color:var(--berry);}
+.services-h em{font-style:italic;font-weight:300;color:var(--ink);}
+.services-intro{font-size:13.5px;color:var(--muted);line-height:1.75;font-weight:300;}
+
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:14px;}
+.card{border-radius:22px;padding:2rem 1.75rem;position:relative;overflow:hidden;transition:transform .3s cubic-bezier(.2,.8,.3,1);}
+.card:hover{transform:translateY(-5px);}
+.card-n{font-family:'Fraunces',serif;font-size:5rem;font-weight:900;line-height:1;position:absolute;top:.5rem;right:1rem;opacity:.09;color:var(--berry);}
+.card-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(255,255,255,.55);color:var(--berry);margin-bottom:1.25rem;}
+.card-price{font-family:'Fraunces',serif;font-size:2.2rem;font-weight:700;color:var(--berry);line-height:1;margin-bottom:.5rem;}
+.card-name{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:.6rem;line-height:1.3;}
+.card-desc{font-size:12px;color:var(--muted);line-height:1.7;font-weight:300;}
+
+/* REVSHARE */
+.revshare{background:var(--berry);border-radius:22px;padding:2.5rem;display:grid;grid-template-columns:1.2fr .8fr;gap:3rem;align-items:center;margin-bottom:14px;}
+.revshare-label{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:999px;background:rgba(228,215,252,.2);color:var(--lavender);margin-bottom:1rem;}
+.revshare-title{font-family:'Fraunces',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;line-height:1.05;color:#fdfaf7;letter-spacing:-.03em;margin-bottom:.75rem;}
+.revshare-title em{font-style:italic;font-weight:300;color:var(--lavender);}
+.revshare-desc{font-size:13px;color:rgba(253,250,247,.6);line-height:1.75;font-weight:300;max-width:440px;}
+.revshare-how{background:rgba(228,215,252,.1);border:1px solid rgba(228,215,252,.2);border-radius:14px;padding:1.5rem;}
+.revshare-how-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--lavender-mid);margin-bottom:1rem;}
+.revshare-steps{display:flex;flex-direction:column;gap:10px;}
+.revshare-step{display:flex;gap:10px;align-items:flex-start;}
+.rs-num{width:22px;height:22px;border-radius:50%;flex-shrink:0;background:rgba(228,215,252,.15);border:1px solid rgba(228,215,252,.25);font-size:10px;font-weight:700;color:var(--lavender-mid);display:flex;align-items:center;justify-content:center;margin-top:1px;}
+.rs-text{font-size:12px;color:rgba(253,250,247,.6);line-height:1.6;font-weight:300;}
+.rs-text strong{font-weight:600;color:rgba(253,250,247,.9);}
+
+/* CTA BAND */
+.cta-band{background:var(--lavender);border-radius:22px;padding:2.5rem 3rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;margin:0 3rem;}
+.cta-band-text{font-family:'Fraunces',serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:600;color:var(--berry);line-height:1.2;}
+.cta-band-text em{font-style:italic;font-weight:300;}
+.btn-berry{background:var(--berry);color:var(--lavender);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;padding:12px 26px;border-radius:999px;border:none;cursor:pointer;text-decoration:none;display:inline-block;letter-spacing:.02em;transition:background .2s,transform .15s;}
+.btn-berry:hover{background:var(--berry-deep);transform:translateY(-2px);}
+.btn-outline{background:transparent;color:var(--berry);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;padding:12px 26px;border-radius:999px;border:1.5px solid rgba(108,50,65,.35);cursor:pointer;text-decoration:none;display:inline-block;transition:border-color .2s,background .2s;}
+.btn-outline:hover{border-color:var(--berry);background:rgba(108,50,65,.05);}
+
+/* ART */
+#art{background:var(--sand);}
+.art-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.art-h{font-family:'Fraunces',serif;font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:900;line-height:1;letter-spacing:-.035em;color:var(--berry);margin-bottom:1rem;}
+.art-h em{font-style:italic;font-weight:300;color:var(--ink);}
+.art-desc{font-size:13.5px;color:var(--muted);line-height:1.75;font-weight:300;margin-bottom:1rem;}
+.art-link{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;color:var(--berry);text-decoration:none;border-bottom:2px solid var(--berry-soft);padding-bottom:2px;transition:gap .2s,border-color .2s;}
+.art-link:hover{gap:14px;border-color:var(--berry);}
+
+.mosaic{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:110px;gap:9px;}
+.tile{border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center;position:relative;transition:transform .3s;}
+.tile:hover{transform:scale(1.04);z-index:2;}
+.t-wide{grid-column:span 2;}.t-tall{grid-row:span 2;}
+.t1{background:var(--lavender);}.t2{background:var(--peach);}.t3{background:var(--sage-n);}
+.t4{background:var(--blush);}.t5{background:var(--sky-n);}.t6{background:var(--moss);}.t7{background:var(--sand-2);}
+.tile svg{width:52%;height:52%;}
+.tile-lbl{position:absolute;bottom:8px;left:10px;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;}
+
+/* SOUL */
+#soul{background:var(--berry-deep);position:relative;overflow:hidden;}
+.soul-orb{position:absolute;border-radius:50%;pointer-events:none;}
+.soul-orb-1{width:500px;height:500px;background:radial-gradient(circle,rgba(228,215,252,.18) 0%,transparent 70%);top:-120px;right:-80px;animation:pulse 8s ease-in-out infinite;}
+.soul-orb-2{width:300px;height:300px;background:radial-gradient(circle,rgba(108,50,65,.6) 0%,transparent 70%);bottom:-60px;left:80px;}
+.soul-inner{position:relative;z-index:2;}
+.soul-pre{font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:rgba(228,215,252,.4);font-weight:500;margin-bottom:.9rem;display:flex;align-items:center;gap:10px;}
+.soul-pre::before{content:'';width:24px;height:1.5px;background:var(--lavender-deep);display:block;}
+.soul-h{font-family:'Fraunces',serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:900;line-height:.95;letter-spacing:-.04em;color:var(--lavender);margin-bottom:1rem;max-width:560px;}
+.soul-h em{font-style:italic;font-weight:300;color:#fdfaf7;}
+.soul-desc{font-size:13.5px;color:rgba(228,215,252,.5);line-height:1.75;font-weight:300;max-width:420px;margin-bottom:3rem;}
+.soul-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:580px;}
+.soul-card{background:rgba(228,215,252,.07);border:1px solid rgba(228,215,252,.14);border-radius:18px;padding:1.5rem;transition:background .25s;}
+.soul-card:hover{background:rgba(228,215,252,.12);}
+.soul-icon{font-size:1.6rem;margin-bottom:.75rem;display:block;}
+.soul-card-h{font-size:14px;font-weight:700;color:var(--lavender);margin-bottom:5px;}
+.soul-card-p{font-size:12px;color:rgba(228,215,252,.45);line-height:1.65;font-weight:300;}
+.soul-status{display:inline-block;margin-top:10px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 10px;border-radius:999px;}
+.ss-soon{background:rgba(228,215,252,.15);color:var(--lavender-mid);}
+.ss-build{background:rgba(108,50,65,.5);color:var(--berry-soft);}
+
+/* ABOUT */
+#about{background:var(--cream);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:start;}
+.about-h{font-family:'Fraunces',serif;font-size:clamp(2.2rem,4.5vw,3.8rem);font-weight:900;line-height:1;letter-spacing:-.035em;color:var(--berry);margin-bottom:2rem;}
+.about-h em{font-style:italic;font-weight:300;color:var(--ink);}
+.values{display:flex;flex-direction:column;gap:1.6rem;}
+.val{display:flex;gap:1.25rem;}
+.val-n{font-family:'Fraunces',serif;font-size:.95rem;font-weight:700;color:var(--berry-soft);min-width:26px;padding-top:2px;}
+.val-h{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.val-p{font-size:13px;color:var(--muted);line-height:1.65;font-weight:300;}
+.ukko-box{background:var(--sage-n);border-radius:20px;padding:2rem;margin-bottom:14px;}
+.ukko-tag{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3d6e4a;margin-bottom:.75rem;display:block;}
+.ukko-h{font-family:'Fraunces',serif;font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;line-height:1.2;}
+.ukko-p{font-size:13px;color:var(--muted);line-height:1.7;font-weight:300;}
+.rhythm-box{background:var(--lavender);border-radius:20px;padding:2rem;}
+.rhythm-tag{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--lavender-deep);margin-bottom:1rem;display:block;}
+.rhythm-items{display:flex;flex-direction:column;gap:10px;}
+.rhythm-item{display:flex;gap:12px;align-items:flex-start;}
+.rdot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:5px;}
+.rdot-berry{background:var(--berry);}.rdot-lav{background:var(--lavender-deep);}.rdot-sand{background:var(--berry-soft);}
+.rhythm-text{font-size:12.5px;color:var(--ink-2);line-height:1.55;font-weight:300;}
+.rhythm-text strong{font-weight:600;}
+
+/* FOOTER */
+footer{background:var(--berry-deep);padding:4rem 3rem 2.5rem;}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;gap:3rem;flex-wrap:wrap;border-bottom:1px solid rgba(228,215,252,.12);padding-bottom:2.5rem;margin-bottom:2rem;}
+.footer-logo{font-family:'Fraunces',serif;font-size:1.5rem;font-weight:900;color:var(--lavender);letter-spacing:-.03em;display:flex;align-items:center;gap:8px;}
+.footer-logo-dot{width:8px;height:8px;border-radius:50%;background:var(--lavender-deep);}
+.footer-sub{font-size:12px;color:rgba(228,215,252,.35);margin-top:6px;font-weight:300;}
+.footer-nav{display:flex;flex-direction:column;gap:10px;}
+.footer-a{font-size:13px;color:rgba(228,215,252,.45);text-decoration:none;transition:color .2s;}
+.footer-a:hover{color:var(--lavender);}
+.footer-contact{font-size:13px;color:rgba(228,215,252,.4);line-height:1.75;font-weight:300;}
+.footer-contact a{color:var(--lavender-mid);text-decoration:none;border-bottom:1px solid rgba(200,181,245,.3);transition:border-color .2s;}
+.footer-contact a:hover{border-color:var(--lavender-mid);}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:rgba(228,215,252,.2);flex-wrap:wrap;gap:1rem;}
+.footer-ukko{display:inline-flex;align-items:center;gap:6px;background:rgba(92,158,122,.15);border:1px solid rgba(92,158,122,.25);border-radius:999px;padding:4px 12px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#8ecfaa;}
+
+/* ANIM */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease;}
+.fade-up.visible{opacity:1;transform:none;}
+
+@media(max-width:768px){
+  nav{padding:1rem 1.5rem;}.nav-links{display:none;}
+  .section{padding:5rem 1.5rem;}
+  .hero{padding:8rem 1.5rem 4rem;}
+  .services-top,.art-layout,.about-grid,.soul-grid,.revshare{grid-template-columns:1fr;}
+  .cards{grid-template-columns:1fr;}
+  .cta-band{margin:0 1.5rem;padding:2rem;}
+  footer{padding:3rem 1.5rem 2rem;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="logo" href="#"><div class="logo-dot"></div>Gabi Design</a>
+  <div class="nav-links">
+    <a class="nav-a" href="#services">Work with me</a>
+    <a class="nav-a" href="#art">Art & shop</a>
+    <a class="nav-a" href="#soul">Tarot</a>
+    <a class="nav-a" href="#about">About</a>
+    <a class="nav-cta" href="mailto:gabi@gabidesign.fi">Let's talk →</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-circle"></div>
+  <div class="hero-blob-2"></div>
+  <div class="hero-inner fade-up">
+    <div class="hero-pre"><span class="hero-pre-dot"></span>Helsinki, Finland · Available for projects</div>
+    <h1>Helping<br>wellbeing<br><em>find its way.</em></h1>
+  </div>
+  <div class="hero-foot fade-up">
+    <p class="hero-desc">CX consulting, illustration & service design for small businesses building something meaningful — without the overwhelm.</p>
+    <div class="hero-chips">
+      <span class="chip chip-berry">CX & Service Design</span>
+      <span class="chip chip-lav">Illustration & Merch</span>
+      <span class="chip chip-sand">Yoga & Tarot — coming soon</span>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span class="ticker-item">CX Consulting <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Service Design <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Illustrations <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Merch & Stickers <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Tarot Readings <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Helsinki, Finland <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Wellbeing Businesses <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">CX Consulting <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Service Design <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Illustrations <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Merch & Stickers <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Tarot Readings <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Helsinki, Finland <span class="ticker-sep">✦</span></span>
+    <span class="ticker-item">Wellbeing Businesses <span class="ticker-sep">✦</span></span>
+  </div>
+</div>
+
+<section id="services" class="section">
+  <div class="services-top fade-up">
+    <div>
+      <div class="eyebrow">Work with me</div>
+      <h2 class="services-h">Three ways<br><em>to work together</em></h2>
+    </div>
+    <p class="services-intro">I work with small wellbeing businesses and creators who have the expertise but need someone to help make it real. No lengthy contracts — invoiced simply via ukko.fi. Everything starts with a conversation.</p>
+  </div>
+
+  <!-- SERVICE 01 — Discovery -->
+  <div class="cards fade-up" style="grid-template-columns:1fr;margin-bottom:14px;">
+    <div class="card" style="background:var(--blush);display:grid;grid-template-columns:1fr 1.4fr;gap:2.5rem;align-items:center;">
+      <div>
+        <div class="card-n" style="position:relative;top:auto;right:auto;opacity:.12;font-size:4rem;margin-bottom:.5rem;">01</div>
+        <span class="card-tag">Always free</span>
+        <div class="card-price" style="font-size:1.6rem;">The discovery call</div>
+        <div class="card-name">Tell me what you're building</div>
+      </div>
+      <div class="card-desc" style="font-size:13px;line-height:1.8;">
+        We talk for 45 minutes. You tell me about your business, where you want to go, what's feeling stuck. No pitch, no agenda from my side — just genuine curiosity. <br><br>
+        At the end, if I spot a real opportunity we're both excited about, we explore working together. If not, you leave with clarity and a fresh perspective. Either way, nothing to lose.
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE 02 — Let's Make Something -->
+  <div class="revshare fade-up" style="margin-bottom:14px;">
+    <div>
+      <span class="revshare-label">Co-production · revenue share + production fee</span>
+      <h3 class="revshare-title">Let's make<br><em>something.</em></h3>
+      <p class="revshare-desc">You have the expertise, the audience, and the idea. I bring the execution — filming, editing, illustrations, pricing strategy, packaging, customer infrastructure. Whatever the product needs that you can't or don't want to do alone.<br><br>
+      We agree on a production fee and a revenue percentage. Your name and mine on what we make together.</p>
+    </div>
+    <div class="revshare-how">
+      <div class="revshare-how-title">What this has looked like</div>
+      <div class="revshare-steps">
+        <div class="revshare-step"><div class="rs-num">🎬</div><div class="rs-text"><strong>Yoga video bundle</strong> — concept, filming, editing, pricing strategy, customer service during launch</div></div>
+        <div class="revshare-step"><div class="rs-num">📓</div><div class="rs-text"><strong>Tarot exercise journal</strong> — co-writing, illustrations, project framing, print production</div></div>
+        <div class="revshare-step"><div class="rs-num">✦</div><div class="rs-text">Could also be: <strong>a course, a digital product, a membership, a workshop series</strong> — if the idea is solid, we find a way</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICE 03 — CX Audit -->
+  <div class="cards fade-up" style="grid-template-columns:1fr;margin-bottom:0;">
+    <div class="card" style="background:var(--sky-n);display:grid;grid-template-columns:1fr 1.4fr;gap:2.5rem;align-items:center;">
+      <div>
+        <div class="card-n" style="position:relative;top:auto;right:auto;opacity:.12;font-size:4rem;margin-bottom:.5rem;">03</div>
+        <span class="card-tag">Fixed fee · by request</span>
+        <div class="card-price" style="font-size:1.6rem;">CX & revenue audit</div>
+        <div class="card-name">For businesses already earning</div>
+      </div>
+      <div class="card-desc" style="font-size:13px;line-height:1.8;">
+        A focused analysis of your customer journey — where people drop off, what stops them buying, what would make them come back. Delivered as a clear, prioritised action report.<br><br>
+        This one is for businesses that are already generating revenue and want to grow it intentionally. Not the right fit if you're just starting out — and I'll tell you that honestly on our call.
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="cta-band fade-up">
+  <p class="cta-band-text">It always starts with<br><em>a conversation.</em></p>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;">
+    <a class="btn-berry" href="mailto:gabi@gabidesign.fi">Book a free discovery call</a>
+    <a class="btn-outline" href="mailto:gabi@gabidesign.fi">Send me a message →</a>
+  </div>
+</div>
+
+<section id="art" class="section">
+  <div class="art-layout">
+    <div class="fade-up">
+      <div class="eyebrow">Illustrations & merch</div>
+      <h2 class="art-h">Art for<br><em>everyday life</em></h2>
+      <p class="art-desc">Wellness-inspired illustrations on tshirts, stickers, tote bags and more. Printed on demand, shipped worldwide — no stock, no logistics, just the art.</p>
+      <p class="art-desc">Custom orders welcome for wellbeing studios, events, or small brands.</p>
+      <a class="art-link" href="#">Browse the full shop on Redbubble →</a>
+    </div>
+    <div class="mosaic fade-up">
+      <div class="tile t-wide t1">
+        <svg viewBox="0 0 120 80" fill="none"><ellipse cx="60" cy="62" rx="5" ry="20" fill="#6c3241" opacity=".3"/><ellipse cx="60" cy="46" rx="30" ry="14" fill="#6c3241" opacity=".4" transform="rotate(-12 60 46)"/><ellipse cx="60" cy="38" rx="22" ry="11" fill="#9b82d4" opacity=".4" transform="rotate(16 60 38)"/><circle cx="60" cy="28" r="7" fill="#9b82d4" opacity=".3"/></svg>
+        <span class="tile-lbl">botanical</span>
+      </div>
+      <div class="tile t2">
+        <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="18" fill="#6c3241" opacity=".18"/><path d="M30 12 C18 12 10 20 10 30 C10 40 18 48 30 48 C22 42 17 36 17 30 C17 24 22 18 30 12Z" fill="#6c3241" opacity=".55"/><circle cx="38" cy="20" r="2" fill="#e4d7fc" opacity=".8"/><circle cx="43" cy="33" r="1.5" fill="#e4d7fc" opacity=".5"/></svg>
+        <span class="tile-lbl">moon</span>
+      </div>
+      <div class="tile t-tall t3">
+        <svg viewBox="0 0 60 120" fill="none"><path d="M5 55 Q15 43 25 55 Q35 67 45 55 Q55 43 65 55" stroke="#6c3241" stroke-width="2.5" stroke-linecap="round" fill="none" opacity=".6"/><path d="M5 43 Q15 31 25 43 Q35 55 45 43 Q55 31 65 43" stroke="#6c3241" stroke-width="1.5" stroke-linecap="round" fill="none" opacity=".35"/><path d="M5 67 Q15 55 25 67 Q35 79 45 67 Q55 55 65 67" stroke="#9b82d4" stroke-width="1" stroke-linecap="round" fill="none" opacity=".4"/></svg>
+        <span class="tile-lbl">flow</span>
+      </div>
+      <div class="tile t4">
+        <svg viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="13" fill="#6c3241" opacity=".25"/><circle cx="30" cy="30" r="8" fill="#6c3241" opacity=".45"/><line x1="30" y1="12" x2="30" y2="8" stroke="#6c3241" stroke-width="2" stroke-linecap="round" opacity=".45"/><line x1="30" y1="48" x2="30" y2="52" stroke="#6c3241" stroke-width="2" stroke-linecap="round" opacity=".45"/><line x1="12" y1="30" x2="8" y2="30" stroke="#6c3241" stroke-width="2" stroke-linecap="round" opacity=".45"/><line x1="48" y1="30" x2="52" y2="30" stroke="#6c3241" stroke-width="2" stroke-linecap="round" opacity=".45"/></svg>
+        <span class="tile-lbl">solstice</span>
+      </div>
+      <div class="tile t-wide t5">
+        <svg viewBox="0 0 120 60" fill="none"><path d="M60 10 L65 28 L83 28 L69 38 L74 57 L60 47 L46 57 L51 38 L37 28 L55 28Z" fill="#6c3241" opacity=".35"/><circle cx="88" cy="18" r="3" fill="#e4d7fc" opacity=".6"/><circle cx="24" cy="24" r="2.5" fill="#e4d7fc" opacity=".5"/></svg>
+        <span class="tile-lbl">inner star</span>
+      </div>
+      <div class="tile t6">
+        <svg viewBox="0 0 60 60" fill="none"><path d="M30 8 L42 26 L30 56 L18 26Z" fill="#6c3241" opacity=".3"/><path d="M30 8 L42 26 L30 38 L18 26Z" fill="#9b82d4" opacity=".25"/></svg>
+        <span class="tile-lbl">crystal</span>
+      </div>
+      <div class="tile t7">
+        <svg viewBox="0 0 60 60" fill="none"><path d="M30 14 C26 18 20 22 20 28 C20 35 24 41 30 41 C36 41 40 35 40 28 C40 22 34 18 30 14Z" fill="#6c3241" opacity=".35"/><path d="M30 20 C28 23 24 26 24 30 C24 34 27 37 30 37 C33 37 36 34 36 30 C36 26 32 23 30 20Z" fill="#6c3241" opacity=".5"/></svg>
+        <span class="tile-lbl">bloom</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="soul" class="section">
+  <div class="soul-orb soul-orb-1"></div>
+  <div class="soul-orb soul-orb-2"></div>
+  <div class="soul-inner">
+    <div class="soul-pre">Coming soon</div>
+    <h2 class="soul-h">Tarot<br><em>readings</em></h2>
+    <p class="soul-desc">A personal 1:1 space to think out loud about your path using tarot as a reflective tool — not fortune telling, just honest conversation and clarity. Opening slowly. Reach out to be the first to know.</p>
+    <div class="soul-grid fade-up" style="grid-template-columns:1fr;max-width:380px;">
+      <div class="soul-card">
+        <span class="soul-icon">🃏</span>
+        <div class="soul-card-h">Tarot readings</div>
+        <p class="soul-card-p">Personal 1:1 sessions as a reflective tool — a space to think out loud about your path, your decisions, and what you're building. No mysticism required, just openness.</p>
+        <span class="soul-status ss-build">Opening soon · reach out to join the list</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="section">
+  <div class="about-grid">
+    <div class="fade-up">
+      <div class="eyebrow">How I work</div>
+      <h2 class="about-h">Human first,<br><em>always</em></h2>
+      <div class="values">
+        <div class="val"><div class="val-n">01</div><div><div class="val-h">Clarity over complexity</div><div class="val-p">Small wellbeing businesses don't need enterprise frameworks. They need simple, honest solutions they can actually use and sustain.</div></div></div>
+        <div class="val"><div class="val-n">02</div><div><div class="val-h">Warmth over formality</div><div class="val-p">I work with you, not at you. Discovery calls feel like conversations. I'm Brazilian — warmth is non-negotiable.</div></div></div>
+        <div class="val"><div class="val-n">03</div><div><div class="val-h">Sustainable pace</div><div class="val-p">I keep projects small and focused so every client gets my full attention. I'm building this alongside a full-time job — intentionally.</div></div></div>
+        <div class="val"><div class="val-n">04</div><div><div class="val-h">Experience you can trust</div><div class="val-p">Senior CX specialist and service design background. Based in Helsinki. I understand both the corporate world and the solopreneur world.</div></div></div>
+      </div>
+    </div>
+    <div class="fade-up">
+      <div class="ukko-box">
+        <span class="ukko-tag">Easy to start</span>
+        <div class="ukko-h">Invoiced via ukko.fi — no contracts needed</div>
+        <p class="ukko-p">I work as a light entrepreneur through ukko.fi. No formal procurement, no lengthy onboarding. We agree on scope, I send an invoice, we get started. As simple as it should be.</p>
+      </div>
+      <div class="rhythm-box">
+        <span class="rhythm-tag">My weekly rhythm — intentionally part-time</span>
+        <div class="rhythm-items">
+          <div class="rhythm-item"><div class="rdot rdot-berry"></div><div class="rhythm-text"><strong>CX consulting</strong> — focused client work, sustainable hours</div></div>
+          <div class="rhythm-item"><div class="rdot rdot-lav"></div><div class="rhythm-text"><strong>Illustrations</strong> — one new design per week, passively growing</div></div>
+          <div class="rhythm-item"><div class="rdot rdot-sand"></div><div class="rhythm-text"><strong>Yoga & tarot</strong> — quietly building, no rush, no pressure</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo"><div class="footer-logo-dot"></div>Gabi Design</div>
+      <p class="footer-sub">CX consulting, illustration & wellbeing — Helsinki, Finland.</p>
+    </div>
+    <nav class="footer-nav">
+      <a class="footer-a" href="#services">Work with me</a>
+      <a class="footer-a" href="#art">Art & shop</a>
+      <a class="footer-a" href="#soul">Yoga & tarot</a>
+      <a class="footer-a" href="#about">About</a>
+    </nav>
+    <div class="footer-contact">Ready to start?<br><a href="mailto:gabi@gabidesign.fi">gabi@gabidesign.fi</a></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Gabi Design</span>
+    <span class="footer-ukko">✦ Invoiced via ukko.fi</span>
+  </div>
+</footer>
+
+<script>
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:.08,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.fade-up').forEach((el,i)=>{
+  el.style.transitionDelay=`${(i%4)*.08}s`;obs.observe(el);
+});
+</script>
+</body>
+</html>
