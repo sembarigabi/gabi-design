@@ -19,15 +19,7 @@ html{scroll-behavior:smooth;}
 body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--ink);overflow-x:hidden;}
 body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:999;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");opacity:0.5;}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:9999;display:flex;align-items:center;justify-content:space-between;padding:1.25rem 3rem;background:#fdfaf7;border-bottom:1px solid rgba(108,50,65,0.12);flex-wrap:nowrap;white-space:nowrap;}
-.logo{font-family:'Fraunces',serif;font-size:1.2rem;font-weight:900;color:#6c3241;text-decoration:none;letter-spacing:-0.02em;display:flex;align-items:center;gap:7px;}
-.logo-dot{width:9px;height:9px;border-radius:50%;background:#9b82d4;flex-shrink:0;}
-.nav-links{display:flex;gap:2rem;align-items:center;flex-shrink:0;flex-wrap:nowrap;}
-.nav-a{font-size:11px;color:#1e1118;text-decoration:none;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;transition:color .2s;}
-.nav-a:hover{color:#6c3241;}
-.nav-cta{font-size:11px;font-weight:600;color:#6c3241;text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color .2s;}
-.nav-cta:hover{color:#4e2230;}
+
 
 
 
@@ -191,22 +183,65 @@ footer{background:var(--berry-deep);padding:4rem 3rem 2.5rem;}
   .cta-band{margin:0 1.5rem;padding:2rem;}
   footer{padding:3rem 1.5rem 2rem;}
 }
+
+/* NAV — rebuilt from scratch */
+#topnav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 60px;
+  z-index: 9999;
+  background: #fdfaf7;
+  border-bottom: 1px solid rgba(108,50,65,0.12);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+  box-sizing: border-box;
+}
+#topnav-logo {
+  font-family: 'Fraunces', serif;
+  font-size: 1.1rem;
+  font-weight: 900;
+  color: #6c3241;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+#topnav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+#topnav-links a {
+  font-size: 11px;
+  color: #1a2e4a;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+#topnav-links a:hover { color: #6c3241; }
+body { padding-top: 60px; }
 </style>
 </head>
 <body>
 
-<nav>
-  <a class="logo" href="#"><div class="logo-dot"></div>Gabi Design</a>
-  <div class="nav-links">
-    <a class="nav-a" href="#services">Work with me</a>
-    <a class="nav-a" href="#art">Art & shop</a>
-    <a class="nav-a" href="#soul">Tarot</a>
-    <a class="nav-a" href="#about">About</a>
-    <a class="nav-cta" href="mailto:schemberg.gabi@gmail.com">Let's talk →</a>
+
+
+
+
+<div id="topnav">
+  <a id="topnav-logo" href="#">Gabi Design</a>
+  <div id="topnav-links">
+    <a href="#services">Work with me</a>
+    <a href="#art">Art &amp; shop</a>
+    <a href="#soul">Tarot</a>
+    <a href="#about">About</a>
+    <a href="mailto:schemberg.gabi@gmail.com">Let's talk</a>
   </div>
-</nav>
-
-
+</div>
 <section class="hero">
   <div class="hero-circle"></div>
   <div class="hero-blob-2"></div>
